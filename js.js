@@ -47,6 +47,7 @@ for(let i = 0; i<array2.length; i++){
     form1.appendChild(array[i][1]);
 }
 document.body.style.cssText = `
+user-select: none;
 background-color: silver;
 display: flex;
 height: 100vh;
