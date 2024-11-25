@@ -1,15 +1,20 @@
 let page1 = ``;
 let page2 = ``;
-
+let array = [];
+const array2 = [ "time of day", "verb", "adjective", "noun", "adjective", "plural noun", "adjective", "color", "exclamation", "verb", "noun", "verb", "plural noun", "adjective", "adjective", "noun", "verb", "noun", "beverage", "plural body part", "verb", "noun", "noun", "adjective", "phrase of victory", "verb past tense", "adjective", "verb", "food or drink"];
 let ibox = document.createElement("div");
 ibox.style.backgroundColor = "gray";
 let form1 = document.createElement("form");
-
-
-
-
-
 ibox.appendChild(form1);
+
+for(let i = 0; i<2; i++){
+    array.push([]);
+    array[i].push(document.createElement("label"));
+    array[i].push(document.createElement("input"));
+    form1.appendChild(array[i][0]);
+    form1.appendChild(array[i][1]);
+}
+
 document.body.appendChild(ibox);
 
 
