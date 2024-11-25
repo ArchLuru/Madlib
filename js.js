@@ -4,6 +4,10 @@ function story(){
             alert("Please fill in all the boxes."); return;
         }
     }
+
+ibox.style.fontFamily = "Courier New, sans-serif";
+ibox.style.fontSize = "1.5vw";
+ibox.style.color = "lightgreen";
 ibox.innerHTML = `One ${array[0][1].value}, I decided it was time to finally ${array[1][1].value} my ${array[2][1].value} coding project.
 I grabbed my ${array[3][1].value}, powered up my ${array[4][1].value} laptop, and began typing lines of ${array[5][1].value} like a true genius.
 Everything seemed ${array[6][1].value} until my screen turned ${array[7][1].value} and displayed the dreaded message: '${array[8][1].value}!'
@@ -12,7 +16,7 @@ Desperate, I Googled ${array[12][1].value} for help and stumbled across a ${arra
 I nervously implemented it, only to watch my program ${array[16][1].value} even more!
 Hours passed. My ${array[17][1].value} ran out of battery, my ${array[18][1].value} grew cold, and my ${array[19][1].value} ached from stress.
 But just as I was about to ${array[20][1].value} and give up, inspiration struck like a ${array[21][1].value}.
-I rewrote the entire ${array[22][1].value} from scratch, added a final ${array[23][1].value} tweak, and held my breath as I clicked ‘Run.’
+I rewrote the entire ${array[22][1].value} from scratch, added a final ${array[23][1].value} tweak, and held my breath as I clicked 'Run.'
 To my surprise, the screen displayed '${array[24][1].value}!' I jumped up and ${array[25][1].value} with joy.
 My ${array[26][1].value} program was complete, ready to ${array[27][1].value} the world.
 All that effort, and I could finally enjoy a well-earned ${array[28][1].value}.`;
@@ -43,6 +47,7 @@ for(let i = 0; i<array2.length; i++){
     form1.appendChild(array[i][1]);
 }
 document.body.style.cssText = `
+background-color: silver;
 display: flex;
 height: 100vh;
 flex-flow: column wrap;
