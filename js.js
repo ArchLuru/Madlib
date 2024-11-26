@@ -1,4 +1,4 @@
-function story(){
+function story(){ // makes sure you filled in all boxes with atleast 1 character
     for(let i = 0; i<array2.length; i++){
         if(array[i][1].value.length < 1){
             alert("Please fill in all the boxes."); return;
@@ -19,9 +19,9 @@ But just as I was about to ${array[20][1].value} and give up, inspiration struck
 I rewrote the entire ${array[22][1].value} from scratch, added a final ${array[23][1].value} tweak, and held my breath as I clicked 'Run.'
 To my surprise, the screen displayed '${array[24][1].value}!' I jumped up and ${array[25][1].value} with joy.
 My ${array[26][1].value} program was complete, ready to ${array[27][1].value} the world.
-All that effort, and I could finally enjoy a well-earned ${array[28][1].value}.`;
+All that effort, and I could finally enjoy a well-earned ${array[28][1].value}.`; // story + variables.
 }
-let array = [];
+let array = []; // array holds label and input elements. array2 holds what each label will be.
 const array2 = [ "time of day", "verb", "adjective", "noun", "adjective", "plural noun", "adjective", "color", "exclamation", "verb", "noun", "verb", "plural noun", "adjective", "adjective", "noun", "verb", "noun", "beverage", "plural body part", "verb", "noun", "noun", "adjective", "phrase of victory", "verb past tense", "adjective", "verb", "food or drink"];
 let ibox = document.createElement("div");
 let form1 = document.createElement("form");
@@ -29,7 +29,7 @@ ibox.appendChild(form1);
 
 for(let i = 0; i<array2.length; i++){
     if(i%3==0 && i != 0){
-        form1.appendChild(document.createElement("br")); 
+        form1.appendChild(document.createElement("br"));  // line break for spacing
         form1.appendChild(document.createElement("br"));
     }
     array.push([]);
@@ -45,7 +45,7 @@ for(let i = 0; i<array2.length; i++){
     array[i][1].style.fontSize = "1em";
     form1.appendChild(array[i][0]);
     form1.appendChild(array[i][1]);
-}
+} // The for loop creates and styles each label and input, pushing into array for easy access.
 document.body.style.cssText = `
 user-select: none;
 background-color: silver;
@@ -54,7 +54,7 @@ height: 100vh;
 flex-flow: column wrap;
 justify-content: center;
 align-items: center;
-`;
+`; // css for body
 ibox.style.cssText = `
 font-size: 1.05vw;
 width: 50vw;
@@ -66,14 +66,14 @@ border-radius: 1rem;
 display: flex;
 flex-flow: row wrap;
 background-color: gray;
-`;
-let button = document.createElement("button");
+`; // css for the div that that holds everything.
+let button = document.createElement("button"); // submit button
 button.style.marginRight = "2vw";
 button.style.marginTop = "2vh";
 button.style.width = "8vw";
 button.style.height = "4vh";
 button.innerText = "Submit";
-button.style.fontSize = "0.8em";
-button.setAttribute("onclick", "story()");
+button.style.fontSize = "0.8em"; // button css
+button.setAttribute("onclick", "story()"); // adding function on click
 ibox.appendChild(button);
 document.body.appendChild(ibox);
