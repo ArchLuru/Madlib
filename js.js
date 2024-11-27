@@ -1,8 +1,7 @@
 function story(){ // makes sure you filled in all boxes with atleast 1 character
-    for(let i = 0; i<array2.length; i++){
+    for(let i = 0; i<array2.length; i++)
         if(array[i][1].value.length < 1){
             alert("Please fill in all the boxes."); return;
-        }
     }
 
 ibox.style.fontFamily = "Courier New, sans-serif";
@@ -21,8 +20,13 @@ To my surprise, the screen displayed '${array[24][1].value}!' I jumped up and ${
 My ${array[26][1].value} program was complete, ready to ${array[27][1].value} the world.
 All that effort, and I could finally enjoy a well-earned ${array[28][1].value}.`; // story + variables.
 }
+function fill() {
+    for(let i = 0; i<array2.length; i++)
+        array[i][1].value = defaultr[i][Math.floor(Math.random()*10)];
+}
 let array = []; // array holds label and input elements. array2 holds what each label will be.
 const array2 = [ "time of day", "verb", "adjective", "noun", "adjective", "plural noun", "adjective", "color", "exclamation", "verb", "noun", "verb", "plural noun", "adjective", "adjective", "noun", "verb", "noun", "beverage", "plural body part", "verb", "noun", "noun", "adjective", "phrase of victory", "verb past tense", "adjective", "verb", "food or drink"];
+const defaultr = [ ["Morning", "Noon", "Afternoon", "Dusk", "Evening", "Midnight", "Sunrise", "Sunset", "Twilight", "Dawn"], ["Finish", "Complete", "Start", "Build", "Improve", "Fix", "Code", "Create", "Work", "Develop"], ["Complex", "Simple", "Difficult", "Challenging", "Easy", "Fun", "Amazing", "Exciting", "Powerful", "Messy"], ["Laptop", "Phone", "Keyboard", "Screen", "Code", "Program", "File", "Document", "Software", "Script"], ["Powerful", "Fast", "Slow", "Heavy", "Light", "Sturdy", "Beautiful", "Sleek", "Efficient", "Fragile"], ["Codes", "Bugs", "Errors", "Scripts", "Files", "Programs", "Functions", "Commands", "Variables", "Lines"], ["Exciting", "Nervous", "Tense", "Surprising", "Unpredictable", "Frustrating", "Fun", "Stressful", "Thrilling", "Mysterious"], ["Red", "Blue", "Green", "Yellow", "Black", "White", "Purple", "Pink", "Orange", "Gray"], ["Oh no", "Yikes", "Wow", "Oops", "Ugh", "Whoa", "Eek", "Hooray", "Dang", "Aha"], ["Fix", "Repair", "Restart", "Tweak", "Change", "Adjust", "Modify", "Update", "Test", "Correct"], ["Settings", "Preferences", "Files", "Code", "Script", "Configuration", "Options", "Commands", "Buttons", "Inputs"], ["Crash", "Freeze", "Fail", "Stop", "Break", "Glitch", "Stutter", "Malfunction", "Bug", "Lag"], ["Solutions", "Tutorials", "Answers", "Forums", "Guides", "Articles", "Websites", "Forums", "FAQs", "Posts"], ["Detailed", "Informative", "Quick", "Clear", "Useful", "Easy", "Short", "Helpful", "Long", "Clear"], ["Last-minute", "Quick", "Easy", "Simple", "Complicated", "Unconventional", "Experimental", "Final", "Helpful", "Last-ditch"], ["Code", "Project", "Program", "Script", "Function", "Functionality", "Algorithm", "Task", "Objective", "Operation"], ["Work", "Function", "Operate", "Run", "Process", "Execute", "Respond", "Activate", "Run", "Activate"], ["Idea", "Moment", "Thought", "Inspiration", "Realization", "Dream", "Concept", "Thought", "Flash", "Insight"], ["Coffee", "Tea", "Water", "Juice", "Soda", "Milk", "Smoothie", "Hot Chocolate", "Lemonade", "Wine"], ["Hands", "Feet", "Legs", "Arms", "Eyes", "Ears", "Knees", "Fingers", "Toes", "Shoulders"], ["Quit", "Stop", "Pause", "Leave", "Fail", "Give up", "Surrender", "Give in", "Exit", "Walk away"], ["Break", "Rest", "Pause", "Timeout", "Escape", "Vacation", "Recess", "Intermission", "Respite", "Relief"], ["Final", "Last", "Permanent", "Absolute", "Sure", "Complete", "Settled", "Done", "Conclusive", "Finished"], ["I did it", "Success!", "Victory!", "Got it!", "Boom!", "Nailed it!", "Yes!", "Woo-hoo!", "Won!", "Champion!"], ["Danced", "Laughed", "Celebrated", "Jumped", "Screamed", "Shouted", "Smiled", "Cried", "Ran", "Hopped"], ["Perfect", "Flawless", "Amazing", "Awesome", "Brilliant", "Wonderful", "Successful", "Complete", "Beautiful", "Impressive"], ["Change", "Modify", "Update", "Improve", "Alter", "Fix", "Adjust", "Tweak", "Refine", "Enhance"], ["Pizza", "Burger", "Soda", "Cake", "Ice cream", "Sandwich", "Salad", "Smoothie", "Water", "Coffee"], ["Problem", "Idea", "Solution", "Breakthrough", "Challenge", "Algorithm", "Bug", "Process", "Step", "Stage"] ];
 let ibox = document.createElement("div");
 let form1 = document.createElement("form");
 ibox.appendChild(form1);
@@ -44,7 +48,7 @@ for(let i = 0; i<array2.length; i++){
     array[i][1].style.height = "2vh";
     array[i][1].style.fontSize = "1em";
     form1.appendChild(array[i][0]);
-    form1.appendChild(array[i][1]);
+    form1.appendChild(array[i][1]); 
 } // The for loop creates and styles each label and input, pushing into array for easy access.
 document.body.style.cssText = `
 user-select: none;
@@ -67,13 +71,17 @@ display: flex;
 flex-flow: row wrap;
 background-color: gray;
 `; // css for the div that that holds everything.
-let button = document.createElement("button"); // submit button
-button.style.marginRight = "2vw";
-button.style.marginTop = "2vh";
-button.style.width = "8vw";
-button.style.height = "4vh";
-button.innerText = "Submit";
-button.style.fontSize = "0.8em"; // button css
-button.setAttribute("onclick", "story()"); // adding function on click
-ibox.appendChild(button);
+const but = [document.createElement("button"), document.createElement("button")];
+for(let i = 0; i<2; i++){
+but[i].style.position = "relative";
+but[i].style.marginTop = "2vh";
+but[i].style.width = "8vw";
+but[i].style.height = "4vh";
+but[i].style.fontSize = "0.8em"; // button css
+if(i == 0) {but[i].innerText = "Submit"; but[i].style.left = "5%";}
+else{but[i].innerText = "Random Fill"; but[i].style.left = "30%";} 
+ibox.appendChild(but[i]);
+}
+but[0].setAttribute("onclick", "story()"); // adding function on click
+but[1].setAttribute("onclick", "fill()"); // adding function on click
 document.body.appendChild(ibox);
